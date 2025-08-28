@@ -1,13 +1,14 @@
-// import { GoogleGenerativeAI } from "@google/generative-ai";
+// prompts/zeroShot.js
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// export async function runZeroShot(genAI) {
-//   const zeroShotPrompt = "Translate this sentence into French: 'How are you today?'";
+export async function runZeroShot(genAI) {
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-//   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const zeroShotPrompt = "Explain the process of photosynthesis in simple words suitable for a high school student.";
 
-//   console.log("ℹ️  Running Zero-Shot Prompt...");
-//   const result = await model.generateContent(zeroShotPrompt);
+  console.log("ℹ️  Running Zero-Shot Prompt...");
 
-//   const text = result.response.text();
-//   console.log("✅ Zero-Shot Prompt Output:\n" + text);
-// }
+  const result = await model.generateContent(zeroShotPrompt);
+
+  console.log("✅ Zero-Shot Prompt Output:\n" + result.response.text());
+}
