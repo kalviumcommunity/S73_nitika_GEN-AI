@@ -5,7 +5,8 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 // import { runOneShot } from "./prompts/oneShot.js";
 // import { runMultiShot } from "./prompts/multiShot.js";
 // import { runDynamic } from "./prompts/dynamic.js";
-import { runChainOfThought } from "./prompts/chainOfThought.js";
+// import { runChainOfThought } from "./prompts/chainOfThought.js";
+import { runTemperature } from "./prompts/temperature.js";
 // later import others...
 
 dotenv.config();
@@ -19,4 +20,5 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 // await runOneShot(genAI);
 // await runMultiShot(genAI);
 // await runDynamic(genAI, "Math", "Pythagorean Theorem");
-await runChainOfThought(genAI);
+// await runChainOfThought(genAI);
+await runTemperature(genAI);
